@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title slot="start">
+      Menú Principal
+    </ion-title>
+    <ion-title slot="end">
+      {{ userName }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        color="light"
+        (click)="logOut()"
+      >
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+      <ion-text style="font-size: 16px; margin-left: 12px;">Mi perfil</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <ion-card>
+          <ion-card-header color="primary">
+            My historial clínico
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="clipboard" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Hola, {{ userName }} tu última visita al médico fue hace 3 meses</ion-text>
+            </ion-row>
+            <ion-footer no-padding>
+              <ion-button expand="block" color="primary">Ver Mi Historial</ion-button>
+            </ion-footer>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3">
+        <ion-card>
+          <ion-card-header color="primary">
+            Editar mi información
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="person" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Edita tu información personal</ion-text>
+            </ion-row>
+            <ion-footer no-padding>
+              <ion-button expand="block" color="primary">Editar información</ion-button>
+            </ion-footer>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-text style="font-size: 16px; margin-left: 12px;">Doctores disponibles</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3" *ngFor="let doc of doctors">
+        <ion-card>
+          <ion-card-header color="primary">
+            {{ doc.NAME }}
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row>
+              <ion-text color="light">
+                {{ doc.ADDRESS }}
+              </ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">
+                {{ doc.AVAILABLE === true ? 'Disponible' : 'No disponible' }}
+              </ion-text>
+            </ion-row>
+            <ion-row style="justify-content: end; font-size: 24px;"><ion-text color="tertiary">${{ doc.PRICE }}.00 MXN</ion-text></ion-row>
+            <ion-footer no-padding><ion-button expand="block" [routerLink]="['/appointment', doc.DOCTORID]">Agendar cita</ion-button></ion-footer>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

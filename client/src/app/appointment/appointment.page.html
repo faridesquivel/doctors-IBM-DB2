@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="home/tabs/flights"
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agendar cita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid class="setMaxGridSize">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header color="primary">{{ doctor.NAME }}</ion-card-header>
+          <ion-card-content>
+            <ion-row class="justified">
+              <ion-col class="ion-text-center">
+                <ion-text color="light">
+                  Dirección
+                </ion-text>
+              </ion-col>
+              <ion-col class="ion-text-center">
+                <ion-text color="light">
+                  {{ doctor.ADDRESS }}
+                </ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row class="justified">
+              <ion-col class="ion-text-center">
+                <ion-text color="light">
+                  Disponible
+                </ion-text>
+              </ion-col>
+              <ion-col class="ion-text-center">
+                <ion-text color="light">
+                  {{ doctor.AVAILABLE === true ? 'Disponible' : 'No disponible' }}
+                </ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row style="justify-content: end; font-size: 24px;">
+              <ion-text color="tertiary">${{ doctor.PRICE }}.00 MXN</ion-text>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
