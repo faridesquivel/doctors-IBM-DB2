@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="home/tabs/flights"
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi agenda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header color="primary">            
+            <ion-row>
+              <ion-col>
+                Cliente
+              </ion-col>
+              <ion-col>
+                Email
+              </ion-col>
+              <ion-col>
+                Teléfono
+              </ion-col>
+              <ion-col>
+                Doctor
+              </ion-col>
+              <ion-col>
+                Fecha cita
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content  class="ion-text-center ion-justify-content-center">
+            <ion-row *ngFor="let date of dates">
+              <ion-col>
+                {{ date.CLIENTNAME }}
+              </ion-col>
+              <ion-col>
+                {{ date.EMAIL }}
+              </ion-col>
+              <ion-col>
+                {{ date.PHONE }}
+              </ion-col>
+              <ion-col>
+                {{ date.DOCNAME }}
+              </ion-col>
+              <ion-col>
+                {{ date.CREATED_AT | slice:0:10 }}
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header color="primary">Clientes Frecuentes</ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

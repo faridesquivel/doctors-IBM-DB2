@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="home"
+          color="light"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Editar cliente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <form #editClientF="ngForm" (ngSubmit)="editClient(editClientF)">
+      <ion-card class="addClientCard whiteColor setMaxGridSize">
+        <ion-row class="ion-justify-content-center">
+          <ion-text class="title">Editando cliente</ion-text>
+          <ion-icon color="primary" name="person" style="font-size: 65px;"></ion-icon>
+        </ion-row>
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-label position="floating">
+              Nombre
+            </ion-label>
+            <ion-input
+              type="text"
+              ngModel
+              name="nombre"
+              required
+              nombre
+              #nameCtrl="ngModel"
+              [(ngModel)]="client.NAME"
+            ></ion-input>
+            <ion-label position="floating">
+              Edad
+            </ion-label>
+            <ion-input
+              type="number"
+              ngModel
+              name="age"
+              required
+              minlength="3"
+              #ageCtrl="ngModel"
+              [(ngModel)]="client.AGE"
+            ></ion-input>
+            <ion-label position="floating">
+              Peso
+            </ion-label>
+            <ion-input
+              type="number"
+              ngModel
+              name="weight"
+              required
+              minlength="3"
+              #weightCtrl="ngModel"
+              [(ngModel)]="client.WEIGHT"
+            ></ion-input>
+            <ion-label position="floating">
+              Correo electrónico
+            </ion-label>
+            <ion-input
+              type="email"
+              ngModel
+              name="email"
+              required
+              email
+              #emailCtrl="ngModel"
+              [(ngModel)]="client.EMAIL"
+            ></ion-input>
+            <ion-label position="floating">
+              Teléfono
+            </ion-label>
+            <ion-input
+              type="tel"
+              ngModel
+              name="phone"
+              required
+              maxlength="12"
+              #phoneCtrl="ngModel"
+              [(ngModel)]="client.PHONE"
+            ></ion-input>
+            <ion-button color="primary" type="submit" expand="block">Editar cliente</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </form>
+  </ion-grid>
+</ion-content>

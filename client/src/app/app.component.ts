@@ -32,10 +32,10 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     const loggedIn = await this.storage.get('currentUser');
-    if (loggedIn) {
-      this.router.navigateByUrl('/home');
-    } else {
+    if (!loggedIn) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.router.navigateByUrl('/home');
     }
   }
 }

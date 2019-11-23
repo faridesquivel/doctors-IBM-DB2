@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="home"
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid class="">
+    <ion-card class="whiteColor">
+      <ion-card-header color="primary" class="ion-text-center">
+        <ion-row>
+          <ion-col>
+            Nombre
+          </ion-col>
+          <ion-col>
+            Edad
+          </ion-col>
+          <ion-col>
+            Peso
+          </ion-col>
+          <ion-col>
+            Email
+          </ion-col>
+          <ion-col>
+            Teléfono
+          </ion-col>
+          <ion-col>
+            Acciones
+          </ion-col>
+          <ion-col>
+            Cliente desde
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content  class="ion-text-center ion-justify-content-center">
+        <ion-row *ngFor="let cli of clients">
+          <ion-col>
+            {{ cli.NAME }}
+          </ion-col>
+          <ion-col>
+            {{ cli.AGE }}
+          </ion-col>
+          <ion-col>
+            {{ cli.WEIGHT }}
+          </ion-col>
+          <ion-col>
+            {{ cli.EMAIL }}
+          </ion-col>
+          <ion-col>
+            {{ cli.PHONE }}
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-button [routerLink]="['/edit-client', cli.CLIENTID]"><ion-icon name="create"></ion-icon></ion-button>
+              <ion-button (click)="deleteClient(cli.CLIENTID)"><ion-icon name="trash"></ion-icon></ion-button>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            {{ cli.CREATED_AT | slice:0:10 }}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

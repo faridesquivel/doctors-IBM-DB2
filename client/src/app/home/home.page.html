@@ -3,6 +3,101 @@
     <ion-title slot="start">
       Menú Principal
     </ion-title>
+    <ion-title slot="end" class="capital">
+      {{ userName }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        color="light"
+        (click)="logOut()"
+      >
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+      <ion-text style="font-size: 16px; margin-left: 12px;">Mi perfil</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <ion-card [routerLink]="['/schedule']">
+          <ion-card-header color="primary">
+            Mis citas
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="clipboard" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Hola, <ion-text class="capital">{{ userName }}</ion-text> tienes 0 eventos el día de hoy</ion-text>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3">
+        <ion-card [routerLink]="['/add-date']">
+          <ion-card-header color="primary">
+            Nueva Cita
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="plus" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Haz click aquí para agregar una cita al calendario</ion-text>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-text style="font-size: 16px; margin-left: 12px;">Mis clientes</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <ion-card [routerLink]="['/list-clients']">
+          <ion-card-header color="primary">
+            Lista de clientes
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="list" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Ver información de clientes o enviar un mensaje</ion-text>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3">
+        <ion-card [routerLink]="['/add-client']">
+          <ion-card-header color="primary">
+            Nuevo cliente
+          </ion-card-header> 
+          <ion-card-content>
+            <ion-row style="justify-content: center;">
+              <ion-icon color="primary" name="person" style="font-size: 65px;"></ion-icon>
+            </ion-row>
+            <ion-row>
+              <ion-text color="light">Haz click aquí para añadir a un nuevo cliente</ion-text>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title slot="start">
+      Menú Principal
+    </ion-title>
     <ion-title slot="end">
       {{ userName }}
     </ion-title>
@@ -88,3 +183,4 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+ -->

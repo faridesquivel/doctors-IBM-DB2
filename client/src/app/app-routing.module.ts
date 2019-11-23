@@ -13,7 +13,12 @@ const routes: Routes = [
         loadChildren: './appointment/appointment.module#AppointmentPageModule' 
       }
     ]
-  }
+  },
+  { path: 'add-client', loadChildren: './add-client/add-client.module#AddClientPageModule' },
+  { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule' },
+  { path: 'list-clients', loadChildren: './list-clients/list-clients.module#ListClientsPageModule' },
+  { path: 'add-date', loadChildren: './add-date/add-date.module#AddDatePageModule' },
+  { path: 'edit-client/:clientId', loadChildren: './edit-client/edit-client.module#EditClientPageModule' }
 ];
 
 @NgModule({
